@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💀 FuhX OMEGA | SMS/CALL Bomber 💀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0a0a, #000000);
+            min-height: 100vh;
+            font-family: 'Orbitron', monospace;
+            color: #0f0;
+            padding: 20px;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid #0f0;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0f0;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 5px;
+            font-size: 0.8rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #0f0;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input:focus {
+            box-shadow: 0 0 15px #0f0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0f0, #0a0);
+            color: #000;
+            box-shadow: 0 0 10px #0f0;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff4444, #990000);
+            color: #fff;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffaa00, #ff6600);
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #0f0;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .log-console {
+            background: #000;
+            border: 2px solid #0f0;
+            border-radius: 15px;
+            padding: 15px;
+            height: 250px;
+            overflow-y: auto;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        .log-entry {
+            padding: 5px;
+            border-bottom: 1px solid #0f0;
+            font-family: monospace;
+        }
+
+        .log-success {
+            color: #0f0;
+        }
+
+        .log-error {
+            color: #ff4444;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #0f0;
+            margin-top: 20px;
+            font-size: 0.7rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .attacking {
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 class="glow-text">💀 FuhX OMEGA 💀</h1>
+        <h3>SMS + CALL BOMBER</h3>
+        <div>
+            <span class="badge">🔥 34+ APIs</span>
+            <span class="badge">⚡ Serverless</span>
+            <span class="badge">👑 @FuhX</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="input-group">
+            <label>📱 Target Number (with country code):</label>
+            <input type="tel" id="phone" placeholder="e.g., 8801xxxxxxxxx" autocomplete="off">
+        </div>
+
+        <div class="input-group">
+            <label>⚙️ Attack Mode:</label>
+            <select id="mode">
+                <option value="both">💀 BOTH (SMS + CALL)</option>
+                <option value="sms">📨 SMS ONLY</option>
+                <option value="call">📞 CALL ONLY</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>🔁 Requests per API (1-10):</label>
+            <input type="number" id="requests" min="1" max="10" value="3">
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary" id="startBtn">🔥 START BOMBING</button>
+            <button class="btn btn-warning" id="clearBtn">🗑️ CLEAR LOG</button>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div>📊 Total</div>
+            <div class="stat-number" id="total">0</div>
+        </div>
+        <div class="stat-card">
+            <div>✅ Success</div>
+            <div class="stat-number" id="success">0</div>
+        </div>
+        <div class="stat-card">
+            <div>❌ Failed</div>
+            <div class="stat-number" id="failed">0</div>
+        </div>
+        <div class="stat-card">
+            <div>⚡ Status</div>
+            <div class="stat-number" id="status">Idle</div>
+        </div>
+    </div>
+
+    <div class="log-console" id="log">
+        <div class="log-entry">[SYSTEM] FuhX OMEGA Activated</div>
+        <div class="log-entry">[SYSTEM] Ready for bombing</div>
+    </div>
+
+    <div class="footer">
+        <p>⚠️ FOR EDUCATIONAL & AUTHORIZED TESTING ONLY ⚠️</p>
+        <p>💀 POWERED BY @FuhX | OMEGA-V4.7.2 💀</p>
+    </div>
+</div>
+
+<script>
+    const API_BASE = window.location.origin;
+    let isAttacking = false;
+
+    function addLog(msg, type = 'info') {
+        const logDiv = document.getElementById('log');
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+        if (type === 'success') entry.classList.add('log-success');
+        if (type === 'error') entry.classList.add('log-error');
+        entry.innerHTML = `[${new Date().toLocaleTimeString()}] ${msg}`;
+        logDiv.appendChild(entry);
+        logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+    function clearLog() {
+        document.getElementById('log').innerHTML = '';
+        addLog('[SYSTEM] Log cleared');
+    }
+
+    async function startBombing() {
+        const phone = document.getElementById('phone').value.trim();
+        const mode = document.getElementById('mode').value;
+        const requests = parseInt(document.getElementById('requests').value);
+
+        if (!phone) {
+            addLog('[ERROR] Enter phone number!', 'error');
+            return;
+        }
+
+        if (!/^[0-9]{10,15}$/.test(phone)) {
+            addLog('[ERROR] Invalid phone number! Use 8801xxxxxxxxx', 'error');
+            return;
+        }
+
+        if (isAttacking) {
+            addLog('[WARN] Attack already running!', 'error');
+            return;
+        }
+
+        isAttacking = true;
+        const startBtn = document.getElementById('startBtn');
+        startBtn.textContent = '🔥 BOMBING...';
+        startBtn.disabled = true;
+        document.getElementById('status').textContent = 'Attacking';
+        document.getElementById('status').style.color = '#ff4444';
+
+        addLog(`💀 Starting OMEGA attack on ${phone}`);
+        addLog(`⚙️ Mode: ${mode.toUpperCase()} | Requests/API: ${requests}`);
+
+        try {
+            const response = await fetch(`${API_BASE}/api/bomb`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    phone: phone,
+                    mode: mode,
+                    requests_per_api: requests
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                document.getElementById('total').textContent = data.total_requests;
+                document.getElementById('success').textContent = data.success_count;
+                document.getElementById('failed').textContent = data.fail_count;
+                
+                addLog(`✅ Attack completed!`, 'success');
+                addLog(`📊 Success: ${data.success_count} | Failed: ${data.fail_count}`, 'success');
+                
+                // Show some results
+                if (data.results) {
+                    data.results.slice(0, 10).forEach(r => {
+                        if (r.success) {
+                            addLog(`✓ ${r.api}: ${r.status}`, 'success');
+                        } else {
+                            addLog(`✗ ${r.api}: Failed`, 'error');
+                        }
+                    });
+                }
+            } else {
+                addLog(`[ERROR] Attack failed: ${data.message || 'Unknown error'}`, 'error');
+            }
+        } catch (err) {
+            addLog(`[ERROR] ${err.message}`, 'error');
+        }
+
+        isAttacking = false;
+        startBtn.textContent = '🔥 START BOMBING';
+        startBtn.disabled = false;
+        document.getElementById('status').textContent = 'Idle';
+        document.getElementById('status').style.color = '#0f0';
+    }
+
+    document.getElementById('startBtn').addEventListener('click', startBombing);
+    document.getElementById('clearBtn').addEventListener('click', clearLog);
+</script>
+</body>
+  </html>
